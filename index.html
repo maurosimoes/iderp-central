@@ -1,150 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Copiar Link Pix</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('images/background.png');
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-image: url("images/background.png");
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+      }
 
+      .container {
+        position: relative;
+        text-align: center;
+        padding: 0px;
+        border-radius: 0px;
+        width: 100%;
+        max-width: 1080px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: rgba(0, 0, 0, 0);
+      }
+
+      #title {
+        margin-top: 50px;
+        max-width: 800px;
+        width: 100%;
+      }
+
+      #qrCode {
+        margin-top: 250px;
+        max-width: 1500px;
+        width: 100%;
+      }
+
+      #subtitle {
+        margin-top: 10px;
+        max-width: 1500px;
+        width: 100%;
+      }
+
+      #smallText {
+        margin-top: 10px;
+        max-width: 1500px;
+        width: 100%;
+      }
+
+      button {
+        background-color: #28a745;
+        color: #ffffff;
+        border: none;
+        padding: 20px 30px;
+        border-radius: 10px;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        max-width: 350px;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      #logo {
+        width: 155px;
+        height: auto;
+        margin-bottom: 50px;
+      }
+
+      .message {
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #28a745;
+        display: none;
+      }
+
+      /* Responsividade */
+      @media (max-width: 1080px) {
         .container {
-            position: relative;
-            text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            width: 1080px;
-            height: 1920px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.2);
+          padding: 0px;
+          width: 100%;
         }
 
         #title {
-            margin-top: 200px;
-            width: 100%;
-            max-width: 800px;
+          width: 100%;
+          max-width: 600px;
         }
 
         #qrCode {
-            margin-top: 25px;
-            max-width: 900px;
-            width: 100%;
+          max-width: 500px;
+          margin-top: 200px;
         }
 
         #subtitle {
-            margin-top: 10px;
-            width: 100%;
-            max-width: 800px;
+          width: 100%;
+          max-width: 900px;
+          margin-top: 100px;
         }
 
         #smallText {
-            margin-top: 10px;
-            width: 100%;
-            max-width: 1200px;
-            font-size: 1.2em;
+          width: 100%;
+          max-width: 1080px;
+          margin-top: 100px;
         }
 
         button {
-            background-color: #28a745;
-            color: #ffffff;
-            border: none;
-            padding: 20px 30px;
-            border-radius: 10px;
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            max-width: 350px;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #218838;
+          font-size: 2em;
+          padding: 12px 20px;
+          max-width: 500px;
         }
 
         #logo {
-            margin-top   : 10px;
-            width: 125px;
-            height: auto;
-            margin-bottom: 30px;
+          width: 200px;
+          margin-bottom: 50px;
+        }
+      }
+
+      /* Para telas maiores que 768px (Desktop) */
+      @media (min-width: 1366px) {
+        .container {
+          max-width: 500px;
+          height: auto;
         }
 
-        .message {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #28a745;
-            display: none;
+        #title {
+          width: 100%;
+          max-width: 800px;
+          margin-top: 25px;
         }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-                height: auto;
-                padding: 10px;
-            }
-
-            #title, #subtitle, #smallText {
-                max-width: 100%;
-            }
-
-            button {
-                max-width: 100%;
-            }
-
-            #qrCode {
-                max-width: 400px;
-            }
-
-            #logo {
-                width: 100px;
-            }
+        #qrCode {
+          max-width: 900px;
+          width: 100%;
+          margin-top: 50px;
         }
+
+        #subtitle {
+          display: none;
+        }
+
+        #smallText {
+          width: 250%;
+          max-width: 1500px;
+          margin-top: 10px;
+        }
+
+        button {
+          display: none;
+        }
+
+        #logo {
+          max-width: 200px;
+          width: 100%;
+          margin-bottom: 25px;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <img id="title" src="images/title.png" alt="Título">
-        <img id="qrCode" src="images/qrcode.png" alt="QR Code">
-        <img id="subtitle" src="images/subtitle.png" alt="Subtítulo">
-        <button onclick="copyToClipboard()">Copiar Link do Pix</button>
-        <img id="smallText" src="images/smalltext.png" alt="Texto pequeno">
-        <img id="logo" src="images/logo.png" alt="Logo">
-        <div id="link" style="display:none;">00020126360014BR.GOV.BCB.PIX0114631700700001085204000053039865802BR5925IGREJA DEUS REAV PENTECOS6009SAO PAULO622605225hsON0o04iVHMLtv18gWzc6304ABDC</div>
-        <p class="message" id="successMessage">Link copiado com sucesso!</p>
+      <img id="title" src="images/title.png" alt="Título" />
+      <img id="qrCode" src="images/qrcode.png" alt="QR Code" />
+      <img id="subtitle" src="images/subtitle.png" alt="Subtítulo" />
+      <button onclick="copyToClipboard()">Copiar Link do Pix</button>
+      <img id="smallText" src="images/smalltext.png" alt="Texto pequeno" />
+      <img id="logo" src="images/logo.png" alt="Logo" />
+      <div id="link" style="display: none">
+        00020126360014BR.GOV.BCB.PIX0114631700700001085204000053039865802BR5925IGREJA
+        DEUS REAV PENTECOS6009SAO PAULO622605225hsON0o04iVHMLtv18gWzc6304ABDC
+      </div>
+      <p class="message" id="successMessage">Link copiado com sucesso!</p>
     </div>
 
     <script>
-        function copyToClipboard() {
-            const linkElement = document.getElementById('link');
-            const tempInput = document.createElement('textarea');
-            tempInput.value = linkElement.textContent;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
+      function copyToClipboard() {
+        const linkElement = document.getElementById("link");
+        const tempInput = document.createElement("textarea");
+        tempInput.value = linkElement.textContent;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
 
-            const successMessage = document.getElementById('successMessage');
-            successMessage.style.display = 'block';
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 3000);
-        }
+        const successMessage = document.getElementById("successMessage");
+        successMessage.style.display = "block";
+        setTimeout(() => {
+          successMessage.style.display = "none";
+        }, 3000);
+      }
     </script>
-</body>
+  </body>
 </html>
