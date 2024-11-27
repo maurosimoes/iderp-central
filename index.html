@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar Link Pix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('images/background.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            width: 1080px;
+            height: 1920px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        #title {
+            margin-top: 50px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        #qrCode {
+            margin-top: 80px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        #subtitle {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        #smallText {
+            margin-top: 15px;
+            width: 100%;
+            max-width: 1200px;
+            font-size: 1.2em;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #ffffff;
+            border: none;
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 350px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #logo {
+            margin-bottom   : 50px;
+            width: 125px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #28a745;
+            display: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                height: auto;
+                padding: 10px;
+            }
+
+            #title, #subtitle, #smallText {
+                max-width: 100%;
+            }
+
+            button {
+                max-width: 100%;
+            }
+
+            #qrCode {
+                max-width: 400px;
+            }
+
+            #logo {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="title" src="images/title.png" alt="Título">
+        <img id="qrCode" src="images/qrcode.png" alt="QR Code">
+        <img id="subtitle" src="images/subtitle.png" alt="Subtítulo">
+        <button onclick="copyToClipboard()">Copiar Link do Pix</button>
+        <img id="smallText" src="images/smalltext.png" alt="Texto pequeno">
+        <img id="logo" src="images/logo.png" alt="Logo">
+        <div id="link" style="display:none;">00020126360014BR.GOV.BCB.PIX0114631700700001085204000053039865802BR5925IGREJA DEUS REAV PENTECOS6009SAO PAULO622605225hsON0o04iVHMLtv18gWzc6304ABDC</div>
+        <p class="message" id="successMessage">Link copiado com sucesso!</p>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const linkElement = document.getElementById('link');
+            const tempInput = document.createElement('textarea');
+            tempInput.value = linkElement.textContent;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
